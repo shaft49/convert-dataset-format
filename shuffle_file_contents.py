@@ -1,17 +1,22 @@
 import random
-
+import argparse
+import os
+parser = argparse.ArgumentParser()
+parser.add_argument('--filename', required = True)
 class Shuffle:
 
-    def shuffle_file_elements(self, filepath, output_file_path):
+    def shuffle_file_elements(self, filepath):
         with open(filepath, 'r') as f:
             read_data = f.read()
             items = read_data.split('\n')
             random.shuffle(items)
-        with open(output_file_path, 'w') as output:
+        os.remove(filepath)
+        with open(filepath, 'w') as output:
             for line in items:
                 output.write(line)
                 output.write('\n')
 
 if __name__ == "__main__":
+    args = parser.parse_args()
     shuffle_obj = Shuffle()
-    shuffle_obj.shuffle_file_elements('train_v0_3.txt', 'output_train_v0_3.txt')
+    shuffle_obj.shuffle_file_elements(args.filename)

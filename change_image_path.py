@@ -1,4 +1,6 @@
-
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--filename', required = True)
 def change_path(filename):
     f = open(filename, 'r')
     f1 = open('output.txt', 'w+')
@@ -11,5 +13,6 @@ def change_path(filename):
     f1.close()
 
 if __name__ == "__main__":
-    filename = 'test.txt'
-    change_path(filename)
+    args = parser.parse_args()
+    print(args.filename)
+    change_path(args.filename)
