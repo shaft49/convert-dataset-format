@@ -6,5 +6,5 @@ labels/
 *.jpg
 *.jpeg
 *.xml
-PASCAL-VOC
+PASCAL-VOC/
 .vscode
