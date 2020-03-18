@@ -2,10 +2,10 @@
 # PASCAL-VOC to YOL0
 python pascal-voc-to-yolo.py --images [image_folder_path] --labels [pascal-voc labelled folder] --output [output folder] --image_path [image path prefix]
 
-#SCUT-HEAD to YOLO
+# SCUT-HEAD to YOLO
 SCUT-HEAD uses PASCAL-VOC format, so PASCAL-VOC to YOLO scripts will work here.
 
-#SPLIT DATASET
+# SPLIT DATASET
 
 python split-data-into-train-test.py --filename [original dataset path file] --train_name [train file path] --test_name [test file path]
 
