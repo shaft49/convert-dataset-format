@@ -2,3 +2,6 @@ Annotations_yolo/
 images/
 labels/
 *.txt
+*.png
+*.jpg
+*.jpeg

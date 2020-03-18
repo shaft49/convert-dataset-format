@@ -1,7 +1,9 @@
 import xml.etree.ElementTree as ET
 import os
 import cv2
-
+import argparse
+parser = argparse.ArgumentParser()
+parser.add_argument('--images', help = 'Images folder path')
 def convert_labels(filepath, imagename, img_dir):
     tree = ET.parse(filepath)
     root = tree.getroot()
@@ -43,4 +45,4 @@ def main():
 
 if __name__ == "__main__":
     #Converts SCUT Head Detection Dataset to YOLO format
-    main()
+    # main()

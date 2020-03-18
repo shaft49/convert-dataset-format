@@ -1,0 +1,26 @@
+<annotation>
+	<folder>front</folder>
+	<filename>1575116391480-Front-01409550405.jpg</filename>
+	<path>C:\front\1575116391480-Front-01409550405.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>0</width>
+		<height>0</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>old_nid</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>6</xmin>
+			<ymin>23</ymin>
+			<xmax>429</xmax>
+			<ymax>288</ymax>
+		</bndbox>
+	</object>
+</annotation>
