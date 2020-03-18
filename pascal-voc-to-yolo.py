@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--images', help = 'give folder path of the images', required = True)
 parser.add_argument('--labels', help = 'give folder path of the pascal-voc labels', required = True)
 parser.add_argument('--output', help = 'give name of the folder where the  converted yolo labels will be saved', required = True)
+parser.add_argument('--image_path', help = 'give the prefix of the image path', required = True)
 def convert_labels(filepath, imagename, img_dir, dir_name):
     tree = ET.parse(filepath)
     root = tree.getroot()
@@ -40,13 +41,19 @@ def convert_labels(filepath, imagename, img_dir, dir_name):
         except ZeroDivisionError:
 	        print(f'Division by zero: width -> {width}, height -> {height}, path -> {text_file}')
 
-def main(images, labels, output):
+def main(images, labels, output, image_path):
     ano_dir = labels
     img_dir = images
     filename_list = os.listdir(ano_dir)
+    path_text = 'path.txt'
+    f = open(path_text, 'w')
     for filename in filename_list:
         filepath = os.path.join(ano_dir, filename)
+        img_file = image_path + filename.split('.')[0] + '.png'
+        f.write(f'{img_file}\n')
         convert_labels(filepath, filename.split('.')[0], img_dir, output)
+    f.close()
+
 
 if __name__ == "__main__":
     #Converts PASCAL-VOC to YOLO format
@@ -54,4 +61,4 @@ if __name__ == "__main__":
     if os.path.exists(args.output):
         shutil.rmtree(args.output)
     print(args.images, args.labels, args.output)
-    main(args.images, args.labels, args.output)
+    main(args.images, args.labels, args.output, args.image_path)
